@@ -1,5 +1,5 @@
 # Stage 1: Build the application
-FROM maven:3.8.6-openjdk-17-slim AS builder
+FROM maven:3.8.7-openjdk-17 AS builder
 
 # Set the working directory
 WORKDIR /app
@@ -28,9 +28,6 @@ WORKDIR /app
 
 # Copy the jar file from the builder stage
 COPY --from=builder /app/target/your-app.jar /app/your-app.jar
-
-# Expose the application's port (if necessary)
-# EXPOSE 8080
 
 # Command to run the application
 CMD ["java", "-jar", "/app/your-app.jar"]
